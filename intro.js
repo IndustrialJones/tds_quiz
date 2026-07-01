@@ -55,7 +55,7 @@ export class Intro extends Phaser.Scene {
         // this.sound.mute = true;// mutes all sound
         // console.log(" TDS:INTRO ");
 
-        // this.choiceMade = false;
+        this.sound.pauseOnBlur = false;
 
         this.clickD = this.sound.add('clickDown');
 
