@@ -42,7 +42,16 @@ export class Intro extends Phaser.Scene {
         this.dispMakeChoice = true;
 
         //audio
-        this.clickD = null;
+        this.meterSnd = null;
+        this.meterVolume = 0.25;
+
+        this.humSnd = null;
+
+        this.detuneAmount = 0;
+        this.detuneInc = 25;
+
+        this.clickN = null;//click next
+        this.clickD = null;//yes/maybe/no clicks
     }
 
     init() {
@@ -57,7 +66,12 @@ export class Intro extends Phaser.Scene {
 
         this.sound.pauseOnBlur = false;
 
-        this.clickD = this.sound.add('clickDown');
+        this.meterSnd = this.sound.add('meterSnd');
+
+        this.clickN = this.sound.add('click1');
+        this.clickD = this.sound.add('click2');
+
+        this.humSnd = this.sound.add('humSnd');
 
         if (this.mode === 'XL') {
             this.bg = this.add.image(window.game.config.width / 2, window.game.config.height / 2, "backgroundXL");
@@ -112,13 +126,16 @@ export class Intro extends Phaser.Scene {
     }
 
     nextEvent() {
-        this.playClickDown();
+        this.playClickNext();
         // console.log(" ROUND / choice made / choice index : ", this.round, this.choiceMade, this.choiceIndex);
         let qName = '';
         if (this.gameOver === false) {
             if (this.firstRound === true) {
                 this.firstRound = false;
                 this.round++;
+
+                this.humSnd.play({ loop: true });
+                this.humSnd.setVolume(0.4);
 
                 qName = "question" + String(this.round);
 
@@ -141,18 +158,40 @@ export class Intro extends Phaser.Scene {
                     if (this.score > 0) {
                         if (this.score > this.prevScore) {
                             this.gauge.anims.play("gauge" + String(this.score));
+
+                            this.detuneAmount = this.detuneAmount + this.detuneInc;
                         } else if (this.score < this.prevScore) {
                             this.gauge.anims.playReverse("gauge" + String(this.prevScore));
+
+                            this.detuneAmount = this.detuneAmount - this.detuneInc;
                         }
+
+                        this.meterSnd.play();
+                        this.meterSnd.setVolume(this.meterVolume);
+
                     } else if (this.score < 0) {
                         if (this.score < this.prevScore) {
                             this.gauge.anims.play("gauge" + String(this.score));
+
+                            this.detuneAmount = this.detuneAmount - this.detuneInc;
                         } else if (this.score > this.prevScore) {
                             this.gauge.anims.playReverse("gauge" + String(this.prevScore));
+
+                            this.detuneAmount = this.detuneAmount + this.detuneInc;
                         }
+
+                        this.meterSnd.play();
+                        this.meterSnd.setVolume(this.meterVolume);
+
                     } else if (Math.abs(this.prevScore) == 1) {
-                        this.gauge.anims.playReverse("gauge" + String(this.prevScore));
+                        this.detuneAmount = 0;
+                        this.gauge.anims.playReverse("gauge" + String(this.prevScore));                        
+                        
+                        this.meterSnd.play();
+                        this.meterSnd.setVolume(this.meterVolume);
                     }
+
+                    this.humSnd.detune = this.detuneAmount;
 
                     this.prevScore = this.score;
 
@@ -166,11 +205,10 @@ export class Intro extends Phaser.Scene {
                             if (this.score <= -4) {
                                 resultIndex = 1;//mostly no//link here
                                 // console.log(" link should work ? ");
-
                             } else if (this.score <= 5 && this.score != 0) {
                                 resultIndex = 2;//not zero//inconclusive
                             } else if (this.score <= 13 && this.score != 0) {
-                                resultIndex = 3;//yeses but no zero
+                                resultIndex = 3;//yesses but no zero
                             } else {
                                 resultIndex = 4;//all maybes
                             }
@@ -254,20 +292,14 @@ export class Intro extends Phaser.Scene {
         });
     }
 
-    playClickUp() {
-        // if (this.clickU) {
-        //     this.clickU.stop();
-        //     this.clickU.play();
-        // }
-        // if (this.clickD) {
-        //     this.clickD.stop();
-        // }
+    playClickNext() {
+        if (this.clickN) {
+            this.clickN.stop();
+            this.clickN.play();
+        }
     }
 
     playClickDown() {
-        if (this.clickU) {
-            this.clickU.stop();
-        }
         if (this.clickD) {
             this.clickD.stop();
             this.clickD.play();

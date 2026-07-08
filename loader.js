@@ -92,8 +92,10 @@ export class Loader extends Phaser.Scene {
         // ]);
 
         // SFX
-        this.load.audio('clickDown', ["assets/audio/clickDown.mp3"]);
-        this.load.audio('clicUp', ["assets/audio/clickUp.mp3"]);
+        this.load.audio('click2', ["assets/audio/clickDown.mp3"]);
+        this.load.audio('click1', ["assets/audio/click2.mp3"]);
+        this.load.audio('meterSnd', ["assets/audio/meter.mp3"]);
+        this.load.audio('humSnd', ["assets/audio/theHum2.mp3"]);
 
         // Loading bar UI
         const barContainer = this.add.container(window.game.config.width / 2, 500);
