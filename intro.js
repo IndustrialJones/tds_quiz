@@ -30,7 +30,7 @@ export class Intro extends Phaser.Scene {
         this.firstRound = true;
 
         this.round = 0;
-        this.roundTotal = 13;
+        this.roundTotal = 12;
 
         this.choiceMade = false;
         this.choiceIndex = -1;
@@ -207,7 +207,7 @@ export class Intro extends Phaser.Scene {
                                 // console.log(" link should work ? ");
                             } else if (this.score <= 5 && this.score != 0) {
                                 resultIndex = 2;//not zero//inconclusive
-                            } else if (this.score <= 13 && this.score != 0) {
+                            } else if (this.score <= this.roundTotal && this.score != 0) {
                                 resultIndex = 3;//yesses but no zero
                             } else {
                                 resultIndex = 4;//all maybes
