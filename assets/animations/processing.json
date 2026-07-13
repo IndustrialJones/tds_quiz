@@ -1,0 +1,104 @@
+{
+	"textures": [
+		{
+			"image": "processing.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 1960,
+				"h": 1348
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "proc1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 978,
+						"h": 672
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 978,
+						"h": 672
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 978,
+						"h": 672
+					}
+				},
+				{
+					"filename": "proc2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 978,
+						"h": 672
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 978,
+						"h": 672
+					},
+					"frame": {
+						"x": 981,
+						"y": 1,
+						"w": 978,
+						"h": 672
+					}
+				},
+				{
+					"filename": "proc3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 978,
+						"h": 672
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 978,
+						"h": 672
+					},
+					"frame": {
+						"x": 1,
+						"y": 675,
+						"w": 978,
+						"h": 672
+					}
+				},
+				{
+					"filename": "proc4.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 978,
+						"h": 672
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 978,
+						"h": 672
+					},
+					"frame": {
+						"x": 981,
+						"y": 675,
+						"w": 978,
+						"h": 672
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:881260bc0a161d7d2d04847e7039de8e:a6cb0a64389f0bd3f532e2ccf66d2f63:5636f81d4104132664ac80d79cf4e6e2$"
+	}
+}
