@@ -79,6 +79,7 @@ export class Loader extends Phaser.Scene {
         // Animations
         this.load.multiatlas('introAnim', 'assets/animations/introAnim.json', 'assets/animations');
         this.load.multiatlas('gauge', 'assets/animations/gauge.json', 'assets/animations');
+        this.load.multiatlas('proc', 'assets/animations/processing.json', 'assets/animations');
         
         // this.load.audio('gameMusic1', ["assets/audio/music/gameMusic1.mp3"]);
 
@@ -96,6 +97,7 @@ export class Loader extends Phaser.Scene {
         this.load.audio('click1', ["assets/audio/click2.mp3"]);
         this.load.audio('meterSnd', ["assets/audio/meter.mp3"]);
         this.load.audio('humSnd', ["assets/audio/theHum2.mp3"]);
+        this.load.audio('dialup', ["assets/audio/dialup.mp3"]);
 
         // Loading bar UI
         const barContainer = this.add.container(window.game.config.width / 2, 500);

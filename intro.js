@@ -16,6 +16,8 @@ export class Intro extends Phaser.Scene {
         this.bY = 1302;
         this.lY = 1140;
 
+        this.processing = null;
+
         this.next = null;
 
         this.buttonArray = [];
@@ -46,6 +48,8 @@ export class Intro extends Phaser.Scene {
         this.meterVolume = 0.25;
 
         this.humSnd = null;
+
+        this.endSnd = null;
 
         this.detuneAmount = 0;
         this.detuneInc = 25;
@@ -185,8 +189,8 @@ export class Intro extends Phaser.Scene {
 
                     } else if (Math.abs(this.prevScore) == 1) {
                         this.detuneAmount = 0;
-                        this.gauge.anims.playReverse("gauge" + String(this.prevScore));                        
-                        
+                        this.gauge.anims.playReverse("gauge" + String(this.prevScore));
+
                         this.meterSnd.play();
                         this.meterSnd.setVolume(this.meterVolume);
                     }
@@ -197,39 +201,52 @@ export class Intro extends Phaser.Scene {
 
                     if (this.round === this.roundTotal) {
                         this.gameOver = true;
-                        this.time.delayedCall(1000, () => {
-                            //results here
-                            //processing then...?
+                        // this.time.delayedCall(1000, () => {
+                        //results here
+                        //processing then...?
 
-                            let resultIndex = -1;
-                            if (this.score <= -4) {
-                                resultIndex = 1;//mostly no//link here
-                                // console.log(" link should work ? ");
-                            } else if (this.score <= 5 && this.score != 0) {
-                                resultIndex = 2;//not zero//inconclusive
-                            } else if (this.score <= this.roundTotal && this.score != 0) {
-                                resultIndex = 3;//yesses but no zero
-                            } else {
-                                resultIndex = 4;//all maybes
-                            }
+                        let resultIndex = -1;
+                        if (this.score <= -4) {
+                            resultIndex = 1;//mostly no//link here
+                            // console.log(" link should work ? ");
+                        } else if (this.score <= 5 && this.score != 0) {
+                            resultIndex = 2;//not zero//inconclusive
+                        } else if (this.score <= this.roundTotal && this.score != 0) {
+                            resultIndex = 3;//yesses but no zero
+                        } else {
+                            resultIndex = 4;//all maybes
+                        }
 
-                            qName = "results" + String(resultIndex);
+                        qName = "results" + String(resultIndex);
 
-                            if (this.mode === 'XL') {
-                                qName = "results" + String(resultIndex) + "XL";
-                            }
+                        if (this.mode === 'XL') {
+                            qName = "results" + String(resultIndex) + "XL";
+                        }
 
-                            this.questions.destroy();
-                            this.questions = this.add.image(window.game.config.width / 2, this.qY, qName);
-                            if (this.score <= -4) {
-                                this.questions.setInteractive();
-                                this.questions.on('pointerdown', (pointer, localX, localY, event) => {
-                                    if (pointer.leftButtonDown()) {
-                                        window.open('https://youtu.be/4rm3AZ9v2fs?si=Kyf0F7_Y9qHrfpTM', '_blank');
-                                    }
-                                });
-                            }
+                        this.questions.destroy();
+                        this.questions = this.add.image(window.game.config.width / 2, this.qY, qName);
+                        if (this.score <= -4) {
+                            this.questions.setInteractive();
+                            this.questions.on('pointerdown', (pointer, localX, localY, event) => {
+                                if (pointer.leftButtonDown()) {
+                                    window.open('https://youtu.be/4rm3AZ9v2fs?si=Kyf0F7_Y9qHrfpTM', '_blank');
+                                }
+                            });
+                        }
+
+                        this.processing = this.add.sprite(window.game.config.width / 2, this.qY, "proc", "proc1.png");
+                        this.processing.anims.play("procAnimate");
+
+                        this.endSnd = this.sound.add("dialup");
+                        this.endSnd.once('complete', () => {
+                            this.processing.destroy();
+                            this.endSnd.destroy();
                         });
+
+                        this.endSnd.play();
+                        this.endSnd.setVolume(0.25);
+
+                        //});//time delay end
                     } else {
                         // advance to the next round, then display that question
                         this.round++;
@@ -383,6 +400,12 @@ export class Intro extends Phaser.Scene {
             this.anims.create({ key: "introAnimate", frames: introFrames, frameRate: 10 });
             this.introAnim.anims.play("introAnimate");
         }
+
+        var procFrames = this.anims.generateFrameNames("proc", {
+            start: 1, end: 4, zeroPad: 0,
+            prefix: 'proc', suffix: '.png'
+        });
+        this.anims.create({ key: "procAnimate", frames: procFrames, frameRate: 4, repeat: -1 });
 
         this.gauge = this.add.sprite(window.game.config.width / 2, window.game.config.height / 2, "gauge", "gauge_pos_0001.png").setDepth(2);
         var gaugeFrames = null;
