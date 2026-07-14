@@ -69,6 +69,8 @@ export class Loader extends Phaser.Scene {
         this.load.image('question13XLb', 'assets/images/question13b.png');
         
         this.load.image('results1XL', 'assets/images/results1XL.png');
+        this.load.image('results1aXL', 'assets/images/results1aXL.png');
+        this.load.image('results1bXL', 'assets/images/results1bXL.png');
         this.load.image('results2XL', 'assets/images/results2XL.png');
         this.load.image('results3XL', 'assets/images/results3XL.png');
         this.load.image('results4XL', 'assets/images/results4XL.png');
@@ -98,6 +100,8 @@ export class Loader extends Phaser.Scene {
         this.load.audio('meterSnd', ["assets/audio/meter.mp3"]);
         this.load.audio('humSnd', ["assets/audio/theHum2.mp3"]);
         this.load.audio('dialup', ["assets/audio/dialup.mp3"]);
+
+        this.load.audio('GodGivenPGRemix', ["assets/audio/Nine Inch Nails - God Given (Pixelgrinder Remix).mp3"]);
 
         // Loading bar UI
         const barContainer = this.add.container(window.game.config.width / 2, 500);

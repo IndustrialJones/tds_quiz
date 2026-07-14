@@ -56,6 +56,8 @@ export class Intro extends Phaser.Scene {
 
         this.clickN = null;//click next
         this.clickD = null;//yes/maybe/no clicks
+
+        this.godGivenMix = null;
     }
 
     init() {
@@ -221,15 +223,30 @@ export class Intro extends Phaser.Scene {
 
                         if (this.mode === 'XL') {
                             qName = "results" + String(resultIndex) + "XL";
+                            if (resultIndex == 1) {
+                                qName = "results1bXL";
+                            }
                         }
 
                         this.questions.destroy();
                         this.questions = this.add.image(window.game.config.width / 2, this.qY, qName);
-                        if (this.score <= -4) {
+                        if (this.score <= -4) {//results 1
+                            if (this.humSnd) {
+                                this.humSnd.destroy();
+                            }
+
+                            let togglePlay = true;
+
                             this.questions.setInteractive();
                             this.questions.on('pointerdown', (pointer, localX, localY, event) => {
                                 if (pointer.leftButtonDown()) {
-                                    window.open('https://youtu.be/4rm3AZ9v2fs?si=Kyf0F7_Y9qHrfpTM', '_blank');
+                                    if (this.godGivenMix.isPlaying) {
+                                        this.questions.setTexture("results1aXL");
+                                        this.godGivenMix.pause();
+                                    } else if (this.godGivenMix.isPaused) {
+                                        this.questions.setTexture("results1bXL");
+                                        this.godGivenMix.resume();
+                                    }
                                 }
                             });
                         }
@@ -241,6 +258,17 @@ export class Intro extends Phaser.Scene {
                         this.endSnd.once('complete', () => {
                             this.processing.destroy();
                             this.endSnd.destroy();
+
+                            this.godGivenMix = this.sound.add("GodGivenPGRemix");
+                            this.godGivenMix.play();
+                            this.godGivenMix.setVolume(0.1);
+
+                            this.tweens.add({
+                                targets: this.godGivenMix,
+                                volume: 1,
+                                duration: 10000,
+                                ease: 'Quad'
+                            });
                         });
 
                         this.endSnd.play();
