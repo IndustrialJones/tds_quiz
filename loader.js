@@ -74,6 +74,8 @@ export class Loader extends Phaser.Scene {
         this.load.image('results2XL', 'assets/images/results2XL.png');
         this.load.image('results3XL', 'assets/images/results3XL.png');
         this.load.image('results4XL', 'assets/images/results4XL.png');
+        this.load.image('results4aXL', 'assets/images/results4aXL.png');
+        this.load.image('results4bXL', 'assets/images/results4bXL.png');
 
         // Spritesheets
         this.load.spritesheet('lights', 'assets/images/lights.png', { frameWidth: 750, frameHeight: 98 });

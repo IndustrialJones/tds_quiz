@@ -158,7 +158,7 @@ export class Intro extends Phaser.Scene {
                     this.choiceMade = false;
                     this.lights.setFrame(0);
                     this.score = this.scoreArray[this.choiceIndex] + this.score;
-                    // console.log(" ROUND / SCORE : ", this.round, this.score);
+                    console.log(" ROUND / SCORE : ", this.round, this.score);
                     this.choiceIndex = -1;
 
                     if (this.score > 0) {
@@ -209,28 +209,27 @@ export class Intro extends Phaser.Scene {
 
                         let resultIndex = -1;
                         if (this.score <= -4) {
-                            resultIndex = 1;//mostly no//link here
-                            // console.log(" link should work ? ");
+                            resultIndex = 1;//mostly no
                         } else if (this.score <= 5 && this.score != 0) {
-                            resultIndex = 2;//not zero//inconclusive
+                            resultIndex = 2;//not zero//inconclusive//mid
                         } else if (this.score <= this.roundTotal && this.score != 0) {
                             resultIndex = 3;//yesses but no zero
                         } else {
-                            resultIndex = 4;//all maybes
+                            resultIndex = 4;//scored zero
                         }
 
                         qName = "results" + String(resultIndex);
 
                         if (this.mode === 'XL') {
                             qName = "results" + String(resultIndex) + "XL";
-                            if (resultIndex == 1) {
-                                qName = "results1bXL";
+                            if (resultIndex == 4) {
+                                qName = "results4bXL";
                             }
                         }
 
                         this.questions.destroy();
                         this.questions = this.add.image(window.game.config.width / 2, this.qY, qName);
-                        if (this.score <= -4) {//results 1
+                        if (resultIndex == 4) {//results 4
                             if (this.humSnd) {
                                 this.humSnd.destroy();
                             }
@@ -241,10 +240,10 @@ export class Intro extends Phaser.Scene {
                             this.questions.on('pointerdown', (pointer, localX, localY, event) => {
                                 if (pointer.leftButtonDown()) {
                                     if (this.godGivenMix.isPlaying) {
-                                        this.questions.setTexture("results1aXL");
+                                        this.questions.setTexture("results4aXL");
                                         this.godGivenMix.pause();
                                     } else if (this.godGivenMix.isPaused) {
-                                        this.questions.setTexture("results1bXL");
+                                        this.questions.setTexture("results4bXL");
                                         this.godGivenMix.resume();
                                     }
                                 }
@@ -259,16 +258,18 @@ export class Intro extends Phaser.Scene {
                             this.processing.destroy();
                             this.endSnd.destroy();
 
-                            this.godGivenMix = this.sound.add("GodGivenPGRemix");
-                            this.godGivenMix.play();
-                            this.godGivenMix.setVolume(0.1);
+                            if (resultIndex == 4) {
+                                this.godGivenMix = this.sound.add("GodGivenPGRemix");
+                                this.godGivenMix.play();
+                                this.godGivenMix.setVolume(0.1);
 
-                            this.tweens.add({
-                                targets: this.godGivenMix,
-                                volume: 1,
-                                duration: 10000,
-                                ease: 'Quad'
-                            });
+                                this.tweens.add({
+                                    targets: this.godGivenMix,
+                                    volume: 1,
+                                    duration: 10000,
+                                    ease: 'Quad'
+                                });
+                            }
                         });
 
                         this.endSnd.play();
