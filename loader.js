@@ -103,7 +103,7 @@ export class Loader extends Phaser.Scene {
         this.load.audio('humSnd', ["assets/audio/theHum2.mp3"]);
         this.load.audio('dialup', ["assets/audio/dialup.mp3"]);
 
-        this.load.audio('GodGivenPGRemix', ["assets/audio/Nine Inch Nails - God Given (Pixelgrinder Remix).mp3"]);
+        // this.load.audio('GodGivenPGRemix', ["assets/audio/Nine Inch Nails - God Given (Pixelgrinder Remix).mp3"]);
 
         // Loading bar UI
         const barContainer = this.add.container(window.game.config.width / 2, 500);

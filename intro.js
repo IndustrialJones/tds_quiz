@@ -222,9 +222,9 @@ export class Intro extends Phaser.Scene {
 
                         if (this.mode === 'XL') {
                             qName = "results" + String(resultIndex) + "XL";
-                            if (resultIndex == 4) {
-                                qName = "results4bXL";
-                            }
+                            // if (resultIndex == 4) {
+                            //     qName = "results4bXL";
+                            // }
                         }
 
                         this.questions.destroy();
@@ -239,13 +239,21 @@ export class Intro extends Phaser.Scene {
                             this.questions.setInteractive();
                             this.questions.on('pointerdown', (pointer, localX, localY, event) => {
                                 if (pointer.leftButtonDown()) {
-                                    if (this.godGivenMix.isPlaying) {
-                                        this.questions.setTexture("results4aXL");
-                                        this.godGivenMix.pause();
-                                    } else if (this.godGivenMix.isPaused) {
-                                        this.questions.setTexture("results4bXL");
-                                        this.godGivenMix.resume();
-                                    }
+
+                                    // if (this.godGivenMix.isPlaying) {
+                                    //     this.questions.setTexture("results4aXL");
+                                    //     this.godGivenMix.pause();
+                                    // } else if (this.godGivenMix.isPaused) {
+                                    //     this.questions.setTexture("results4bXL");
+                                    //     this.godGivenMix.resume();
+                                    // }
+
+                                    const link = document.createElement('a');
+                                    link.href = 'assets/audio/Nine%20Inch%20Nails%20-%20God%20Given%20(Pixelgrinder%20Remix).mp3';
+                                    link.download = 'Nine Inch Nails - God Given (Pixelgrinder Remix).mp3';
+                                    document.body.appendChild(link);
+                                    link.click();
+                                    document.body.removeChild(link);
                                 }
                             });
                         }
@@ -259,16 +267,16 @@ export class Intro extends Phaser.Scene {
                             this.endSnd.destroy();
 
                             if (resultIndex == 4) {
-                                this.godGivenMix = this.sound.add("GodGivenPGRemix");
-                                this.godGivenMix.play();
-                                this.godGivenMix.setVolume(0.1);
+                                // this.godGivenMix = this.sound.add("GodGivenPGRemix");
+                                // this.godGivenMix.play();
+                                // this.godGivenMix.setVolume(0.1);
 
-                                this.tweens.add({
-                                    targets: this.godGivenMix,
-                                    volume: 1,
-                                    duration: 10000,
-                                    ease: 'Quad'
-                                });
+                                // this.tweens.add({
+                                //     targets: this.godGivenMix,
+                                //     volume: 1,
+                                //     duration: 10000,
+                                //     ease: 'Quad'
+                                // });
                             }
                         });
 
