@@ -9,6 +9,8 @@ export class Intro extends Phaser.Scene {
         this.gauge = null;
         this.introAnim = null;
 
+        this.playButton = null;
+
         this.lights = null;
         this.questions = null;
         this.qY = 400;
@@ -230,30 +232,35 @@ export class Intro extends Phaser.Scene {
                         this.questions.destroy();
                         this.questions = this.add.image(window.game.config.width / 2, this.qY, qName);
                         if (resultIndex == 4) {//results 4
+                            this.questions.setTexture("results4bXL");
                             if (this.humSnd) {
                                 this.humSnd.destroy();
                             }
 
-                            let togglePlay = true;
-
                             this.questions.setInteractive();
                             this.questions.on('pointerdown', (pointer, localX, localY, event) => {
                                 if (pointer.leftButtonDown()) {
-
-                                    // if (this.godGivenMix.isPlaying) {
-                                    //     this.questions.setTexture("results4aXL");
-                                    //     this.godGivenMix.pause();
-                                    // } else if (this.godGivenMix.isPaused) {
-                                    //     this.questions.setTexture("results4bXL");
-                                    //     this.godGivenMix.resume();
-                                    // }
-
                                     const link = document.createElement('a');
                                     link.href = 'assets/audio/Nine%20Inch%20Nails%20-%20God%20Given%20(Pixelgrinder%20Remix).mp3';
                                     link.download = 'Nine Inch Nails - God Given (Pixelgrinder Remix).mp3';
                                     document.body.appendChild(link);
                                     link.click();
                                     document.body.removeChild(link);
+                                }
+                            });
+
+                            this.playButton = this.add.sprite(865, 601, 'btnPlay').setFrame(1);
+                            this.playButton.setInteractive();
+                            this.playButton.on('pointerdown', (pointer, localX, localY, event) => {
+                                if (pointer.leftButtonDown()) {
+
+                                    if (this.godGivenMix.isPlaying) {
+                                        this.playButton.setFrame(0);
+                                        this.godGivenMix.pause();
+                                    } else if (this.godGivenMix.isPaused) {
+                                        this.playButton.setFrame(1);
+                                        this.godGivenMix.resume();
+                                    }
                                 }
                             });
                         }
@@ -267,16 +274,16 @@ export class Intro extends Phaser.Scene {
                             this.endSnd.destroy();
 
                             if (resultIndex == 4) {
-                                // this.godGivenMix = this.sound.add("GodGivenPGRemix");
-                                // this.godGivenMix.play();
-                                // this.godGivenMix.setVolume(0.1);
+                                this.godGivenMix = this.sound.add("GodGivenPGRemix");
+                                this.godGivenMix.play();
+                                this.godGivenMix.setVolume(0.1);
 
-                                // this.tweens.add({
-                                //     targets: this.godGivenMix,
-                                //     volume: 1,
-                                //     duration: 10000,
-                                //     ease: 'Quad'
-                                // });
+                                this.tweens.add({
+                                    targets: this.godGivenMix,
+                                    volume: 1,
+                                    duration: 10000,
+                                    ease: 'Quad'
+                                });
                             }
                         });
 

@@ -12,31 +12,9 @@ export class Loader extends Phaser.Scene {
 
     preload() {
         // Sprites
-        this.load.image('background', 'assets/images/background.jpg');
         this.load.image('backgroundXL', 'assets/images/backgroundXL.jpg');
 
         this.load.image('button', 'assets/images/button.png');
-        
-        //small
-        // this.load.image('question0', 'assets/images/question0.png');
-        // this.load.image('question1', 'assets/images/question1.png');
-        // this.load.image('question2', 'assets/images/question2.png');
-        // this.load.image('question3', 'assets/images/question3.png');
-        // this.load.image('question4', 'assets/images/question4.png');
-        // this.load.image('question5', 'assets/images/question5.png');
-        // this.load.image('question6', 'assets/images/question6.png');
-        // this.load.image('question7', 'assets/images/question7.png');
-        // this.load.image('question8', 'assets/images/question8.png');
-        // this.load.image('question9', 'assets/images/question9.png');
-        // this.load.image('question10', 'assets/images/question10.png');
-        // this.load.image('question11', 'assets/images/question11.png');
-        // this.load.image('question12', 'assets/images/question12.png');
-        // this.load.image('question13', 'assets/images/question13.png');
-        
-        // this.load.image('results1', 'assets/images/results1.png');
-        // this.load.image('results2', 'assets/images/results2.png');
-        // this.load.image('results3', 'assets/images/results3.png');
-        // this.load.image('results4', 'assets/images/results4.png');
 
         //XL
         this.load.image('question1XL', 'assets/images/question1XL.png');
@@ -79,22 +57,15 @@ export class Loader extends Phaser.Scene {
 
         // Spritesheets
         this.load.spritesheet('lights', 'assets/images/lights.png', { frameWidth: 750, frameHeight: 98 });
+        this.load.spritesheet('btnPlay', 'assets/images/buttonPlay.png', { frameWidth: 153, frameHeight: 85 });
 
         // Animations
         this.load.multiatlas('introAnim', 'assets/animations/introAnim.json', 'assets/animations');
         this.load.multiatlas('gauge', 'assets/animations/gauge.json', 'assets/animations');
         this.load.multiatlas('proc', 'assets/animations/processing.json', 'assets/animations');
-        
-        // this.load.audio('gameMusic1', ["assets/audio/music/gameMusic1.mp3"]);
 
         // Fonts
         // this.load.bitmapFont('fontJoystix', '/assets/fonts/joystix.png', '/assets/fonts/joystix.xml');
-
-        //audio
-        // this.load.audio('coin', [
-        //     "assets/audio/coin.mp3",
-        //     "assets/audio/coin.ogg"
-        // ]);
 
         // SFX
         this.load.audio('click2', ["assets/audio/clickDown.mp3"]);
@@ -103,7 +74,7 @@ export class Loader extends Phaser.Scene {
         this.load.audio('humSnd', ["assets/audio/theHum2.mp3"]);
         this.load.audio('dialup', ["assets/audio/dialup.mp3"]);
 
-        // this.load.audio('GodGivenPGRemix', ["assets/audio/Nine Inch Nails - God Given (Pixelgrinder Remix).mp3"]);
+        this.load.audio('GodGivenPGRemix', ["assets/audio/Nine Inch Nails - God Given (Pixelgrinder Remix).mp3"]);
 
         // Loading bar UI
         const barContainer = this.add.container(window.game.config.width / 2, 500);
