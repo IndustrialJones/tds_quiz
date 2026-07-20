@@ -17,43 +17,41 @@ export class Loader extends Phaser.Scene {
         this.load.image('button', 'assets/images/button.png');
 
         //XL
-        this.load.image('question1XL', 'assets/images/question1XL.png');
-        this.load.image('question2XL', 'assets/images/question2XL.png');
-        this.load.image('question3XL', 'assets/images/question3XL.png');
-        this.load.image('question4XL', 'assets/images/question4XL.png');
-        this.load.image('question5XL', 'assets/images/question5XL.png');
-        this.load.image('question6XL', 'assets/images/question6XL.png');
-        this.load.image('question7XL', 'assets/images/question7XL.png');
-        this.load.image('question8XL', 'assets/images/question8XL.png');
-        this.load.image('question9XL', 'assets/images/question9XL.png');
-        this.load.image('question10XL', 'assets/images/question10XL.png');
-        this.load.image('question11XL', 'assets/images/question11XL.png');
-        this.load.image('question12XL', 'assets/images/question12XL.png');
-        this.load.image('question13XL', 'assets/images/question13XL.png');
+        this.load.image('question1XL', 'assets/images/question1XL.webp');
+        this.load.image('question2XL', 'assets/images/question2XL.webp');
+        this.load.image('question3XL', 'assets/images/question3XL.webp');
+        this.load.image('question4XL', 'assets/images/question4XL.webp');
+        this.load.image('question5XL', 'assets/images/question5XL.webp');
+        this.load.image('question6XL', 'assets/images/question6XL.webp');
+        this.load.image('question7XL', 'assets/images/question7XL.webp');
+        this.load.image('question8XL', 'assets/images/question8XL.webp');
+        this.load.image('question9XL', 'assets/images/question9XL.webp');
+        this.load.image('question10XL', 'assets/images/question10XL.webp');
+        this.load.image('question11XL', 'assets/images/question11XL.webp');
+        this.load.image('question12XL', 'assets/images/question12XL.webp');
         
         //make a choice 
-        this.load.image('question1XLb', 'assets/images/question1b.png');
-        this.load.image('question2XLb', 'assets/images/question2b.png');
-        this.load.image('question3XLb', 'assets/images/question3b.png');
-        this.load.image('question4XLb', 'assets/images/question4b.png');
-        this.load.image('question5XLb', 'assets/images/question5b.png');
-        this.load.image('question6XLb', 'assets/images/question6b.png');
-        this.load.image('question7XLb', 'assets/images/question7b.png');
-        this.load.image('question8XLb', 'assets/images/question8b.png');
-        this.load.image('question9XLb', 'assets/images/question9b.png');
-        this.load.image('question10XLb', 'assets/images/question10b.png');
-        this.load.image('question11XLb', 'assets/images/question11b.png');
-        this.load.image('question12XLb', 'assets/images/question12b.png');
-        this.load.image('question13XLb', 'assets/images/question13b.png');
+        this.load.image('question1XLb', 'assets/images/question1b.webp');
+        this.load.image('question2XLb', 'assets/images/question2b.webp');
+        this.load.image('question3XLb', 'assets/images/question3b.webp');
+        this.load.image('question4XLb', 'assets/images/question4b.webp');
+        this.load.image('question5XLb', 'assets/images/question5b.webp');
+        this.load.image('question6XLb', 'assets/images/question6b.webp');
+        this.load.image('question7XLb', 'assets/images/question7b.webp');
+        this.load.image('question8XLb', 'assets/images/question8b.webp');
+        this.load.image('question9XLb', 'assets/images/question9b.webp');
+        this.load.image('question10XLb', 'assets/images/question10b.webp');
+        this.load.image('question11XLb', 'assets/images/question11b.webp');
+        this.load.image('question12XLb', 'assets/images/question12b.webp');
         
-        this.load.image('results1XL', 'assets/images/results1XL.png');
-        this.load.image('results1aXL', 'assets/images/results1aXL.png');
-        this.load.image('results1bXL', 'assets/images/results1bXL.png');
-        this.load.image('results2XL', 'assets/images/results2XL.png');
-        this.load.image('results3XL', 'assets/images/results3XL.png');
-        this.load.image('results4XL', 'assets/images/results4XL.png');
-        this.load.image('results4aXL', 'assets/images/results4aXL.png');
-        this.load.image('results4bXL', 'assets/images/results4bXL.png');
+        this.load.image('results1XL', 'assets/images/results1XL.webp');
+        this.load.image('results1aXL', 'assets/images/results1aXL.webp');
+        this.load.image('results1bXL', 'assets/images/results1bXL.webp');
+        this.load.image('results2XL', 'assets/images/results2XL.webp');
+        this.load.image('results3XL', 'assets/images/results3XL.webp');
+        this.load.image('results4XL', 'assets/images/results4XL.webp');
+        this.load.image('results4aXL', 'assets/images/results4aXL.webp');
+        this.load.image('results4bXL', 'assets/images/results4bXL.webp');
 
         // Spritesheets
         this.load.spritesheet('lights', 'assets/images/lights.png', { frameWidth: 750, frameHeight: 98 });
@@ -74,7 +72,7 @@ export class Loader extends Phaser.Scene {
         this.load.audio('humSnd', ["assets/audio/theHum2.mp3"]);
         this.load.audio('dialup', ["assets/audio/dialup.mp3"]);
 
-        this.load.audio('GodGivenPGRemix', ["assets/audio/Nine Inch Nails - God Given (Pixelgrinder Remix).mp3"]);
+        // this.load.audio('GodGivenPGRemix', ["assets/audio/Nine Inch Nails - God Given (Pixelgrinder Remix).mp3"]);
 
         // Loading bar UI
         const barContainer = this.add.container(window.game.config.width / 2, 500);

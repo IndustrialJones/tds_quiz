@@ -60,6 +60,8 @@ export class Intro extends Phaser.Scene {
         this.clickD = null;//yes/maybe/no clicks
 
         this.godGivenMix = null;
+
+        this.linkArray = [];
     }
 
     init() {
@@ -231,6 +233,9 @@ export class Intro extends Phaser.Scene {
 
                         this.questions.destroy();
                         this.questions = this.add.image(window.game.config.width / 2, this.qY, qName);
+                        if (resultIndex == 1) {//results 1
+
+                        }
                         if (resultIndex == 4) {//results 4
                             this.questions.setTexture("results4bXL");
                             if (this.humSnd) {
@@ -240,12 +245,12 @@ export class Intro extends Phaser.Scene {
                             this.questions.setInteractive();
                             this.questions.on('pointerdown', (pointer, localX, localY, event) => {
                                 if (pointer.leftButtonDown()) {
-                                    const link = document.createElement('a');
-                                    link.href = 'assets/audio/Nine%20Inch%20Nails%20-%20God%20Given%20(Pixelgrinder%20Remix).mp3';
-                                    link.download = 'Nine Inch Nails - God Given (Pixelgrinder Remix).mp3';
-                                    document.body.appendChild(link);
-                                    link.click();
-                                    document.body.removeChild(link);
+                                    const link4 = document.createElement('a');
+                                    link4.href = 'assets/audio/Nine%20Inch%20Nails%20-%20God%20Given%20(Pixelgrinder%20Remix).mp3';
+                                    link4.download = 'Nine Inch Nails - God Given (Pixelgrinder Remix).mp3';
+                                    document.body.appendChild(link4);
+                                    link4.click();
+                                    document.body.removeChild(link4);
                                 }
                             });
 
@@ -270,20 +275,24 @@ export class Intro extends Phaser.Scene {
 
                         this.endSnd = this.sound.add("dialup");
                         this.endSnd.once('complete', () => {
-                            this.processing.destroy();
-                            this.endSnd.destroy();
+                            if (this.cache.audio.exists('GodGivenPGRemix')) {
 
-                            if (resultIndex == 4) {
-                                this.godGivenMix = this.sound.add("GodGivenPGRemix");
-                                this.godGivenMix.play();
-                                this.godGivenMix.setVolume(0.1);
+                                this.startGodGiven();
 
-                                this.tweens.add({
-                                    targets: this.godGivenMix,
-                                    volume: 1,
-                                    duration: 10000,
-                                    ease: 'Quad'
+                            } else {
+                                this.processing.setVisible(true);
+
+                                this.load.audio(
+                                    'GodGivenPGRemix',
+                                    'assets/audio/Nine Inch Nails - God Given (Pixelgrinder Remix).mp3'
+                                );
+
+                                this.load.once('complete', () => {
+                                    this.processing.setVisible(false);
+                                    this.startGodGiven();
                                 });
+
+                                this.load.start();
                             }
                         });
 
@@ -323,6 +332,21 @@ export class Intro extends Phaser.Scene {
                 }
             }
         }
+    }
+
+    startGodGiven() {
+        this.godGivenMix = this.sound.add('GodGivenPGRemix');
+
+        this.godGivenMix.play();
+
+        this.godGivenMix.setVolume(0.1);
+
+        this.tweens.add({
+            targets: this.godGivenMix,
+            volume: 1,
+            duration: 10000,
+            ease: 'Quad'
+        });
     }
 
     keyboardInput() {
