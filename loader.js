@@ -45,8 +45,8 @@ export class Loader extends Phaser.Scene {
         this.load.image('question12XLb', 'assets/images/question12b.webp');
         
         this.load.image('results1XL', 'assets/images/results1XL.webp');
-        this.load.image('results1aXL', 'assets/images/results1aXL.webp');
-        this.load.image('results1bXL', 'assets/images/results1bXL.webp');
+        // this.load.image('results1aXL', 'assets/images/results1aXL.webp');
+        // this.load.image('results1bXL', 'assets/images/results1bXL.webp');
         this.load.image('results2XL', 'assets/images/results2XL.webp');
         this.load.image('results3XL', 'assets/images/results3XL.webp');
         this.load.image('results4XL', 'assets/images/results4XL.webp');

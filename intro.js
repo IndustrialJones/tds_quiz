@@ -226,15 +226,17 @@ export class Intro extends Phaser.Scene {
 
                         if (this.mode === 'XL') {
                             qName = "results" + String(resultIndex) + "XL";
-                            // if (resultIndex == 4) {
-                            //     qName = "results4bXL";
-                            // }
                         }
 
                         this.questions.destroy();
                         this.questions = this.add.image(window.game.config.width / 2, this.qY, qName);
-                        if (resultIndex == 1) {//results 1
-
+                        if (resultIndex == 1) {
+                            this.questions.setInteractive();
+                            this.questions.on('pointerdown', (pointer, localX, localY, event) => {
+                                if (pointer.leftButtonDown()) {
+                                    window.open('https://discord.gg/RuPGdjm7mV', '_blank');
+                                }
+                            });
                         }
                         if (resultIndex == 4) {//results 4
                             this.questions.setTexture("results4bXL");
@@ -275,24 +277,28 @@ export class Intro extends Phaser.Scene {
 
                         this.endSnd = this.sound.add("dialup");
                         this.endSnd.once('complete', () => {
-                            if (this.cache.audio.exists('GodGivenPGRemix')) {
+                            if (resultIndex == 4) {//results 4
+                                if (this.cache.audio.exists('GodGivenPGRemix')) {
 
-                                this.startGodGiven();
-
-                            } else {
-                                this.processing.setVisible(true);
-
-                                this.load.audio(
-                                    'GodGivenPGRemix',
-                                    'assets/audio/Nine Inch Nails - God Given (Pixelgrinder Remix).mp3'
-                                );
-
-                                this.load.once('complete', () => {
-                                    this.processing.setVisible(false);
                                     this.startGodGiven();
-                                });
 
-                                this.load.start();
+                                } else {
+                                    this.processing.setVisible(true);
+
+                                    this.load.audio(
+                                        'GodGivenPGRemix',
+                                        'assets/audio/Nine Inch Nails - God Given (Pixelgrinder Remix).mp3'
+                                    );
+
+                                    this.load.once('complete', () => {
+                                        this.processing.setVisible(false);
+                                        this.startGodGiven();
+                                    });
+
+                                    this.load.start();
+                                }
+                            } else {
+                                this.processing.destroy();
                             }
                         });
 
