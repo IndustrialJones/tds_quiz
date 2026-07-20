@@ -61,7 +61,42 @@ export class Intro extends Phaser.Scene {
 
         this.godGivenMix = null;
 
-        this.linkArray = [];
+        this.linkArray = [
+            ['End Prologue video', 'https://vimeo.com/1211100743?share=copy&fl=sv&fe=ci'],
+            ['Last New York Times', 'https://drive.google.com/file/d/1hheZLK_KQSc5RKAyxaQWlUxCPsa8jCs2/view?usp=drive_link'],
+            ['Atlantic Article Screengrab', 'https://drive.google.com/file/d/1xJFoKP6wQleURRPNyl2N1Ln2sfRbkNRp/view?usp=drive_link'],
+            ['Black Hole Poster', 'https://drive.google.com/file/d/1gYGiyMKjqbiIlc2z_7PRhlmTkfM86CdA/view?usp=drive_link'],
+            ['Black Hole Article', 'https://drive.google.com/file/d/1vqYC8rq8A1R0uO2eiDjMrbeNAlIoz8Id/view?usp=drive_link'],
+            ['Vessel Remix', 'https://drive.google.com/file/d/1u6_qHIl_8zQnnP5KtBhVmgz90ng-HpeM/view?usp=drive_link'],
+            ['Regent Corps Brochure', 'https://drive.google.com/file/d/1t5H8ADtgN3VqH2pu7_iFedF-rmSlmton/view?usp=drive_link'],
+            ['Ophelia Manifesto', 'https://drive.google.com/file/d/1JXipHk2P6_5AqVvHCgHySKHfVykiXwD0/view?usp=drive_link'],
+            ['Stingray: Solace Meeting', 'https://drive.google.com/file/d/1DiaGgdlX7fagEeDeFJeH79mm9HCSt2eB/view?usp=drive_link'],
+            ['Stingray: Displacee', 'https://drive.google.com/file/d/1A8h8R_Lkb0cq8FEYv_cmwVSRdFZYCtFI/view?usp=drive_link'],
+            ['Stingray: T-Shirt Kid', 'https://drive.google.com/file/d/1qwsoT_Ti-hRSWDS_qUc5G8_oLdTD_XZ4/view?usp=drive_link'],
+            ['Ares III Article', 'https://drive.google.com/file/d/1C1AuwuvV3gS85sigRhPT0UZhF_rENkm2/view?usp=drive_link'],
+            ['Zach Transcript', 'https://drive.google.com/file/d/1fzR33WY-BOI7fgU6U3DB2j0h6Lrn6avy/view?usp=drive_link'],
+            ['The Good Soldier Remix', 'https://drive.google.com/file/d/1k2A8I0c2gdKmwIkWWqW1wzYdizthuz78/view?usp=drive_link'],
+            ['Presence Sighting A', 'https://drive.google.com/file/d/1aD9Tl1wJWX4aiM8DAwVTfI2uwK0Aw7kr/view?usp=drive_link'],
+            ['USBI File: Ophelia Letter 1', 'https://drive.google.com/file/d/1dGqBCE5dYSu7E8I-uSqrTyUjPlbW2HIY/view?usp=drive_link'],
+            ['51-Star Flag Press Release', 'https://drive.google.com/file/d/1UJkQa-whpRODIBpnRvgZnP54ury-j8Sw/view?usp=drive_link'],
+            ['AIR Manifesto', 'https://drive.google.com/file/d/1fPOPkuxC2zvsCCBw_v94f4EaiXdilOq9/view?usp=drive_link'],
+            ['NYC Protest Massacre', 'https://drive.google.com/file/d/1VExM323xXfMiRewQJg8mOeC_LQedkTFL/view?usp=drive_link'],
+            ['USBI File: Ophelia Letter 2', 'https://drive.google.com/file/d/1oQeKN0ohuMEsGhxgdhAdP-sCTqGQWLp9/view?usp=drive_link'],
+            ['Forum Capture', 'https://drive.google.com/file/d/1PEDK-J_pe-B1mU1AExrTrbXcJx1xozOp/view?usp=drive_link'],
+            ['Stingray: Twins', 'https://drive.google.com/file/d/1CYpKZaQfcPqKQm2xWlMm5hhezo7UrCH4/view?usp=drive_link'],
+            ['Stingray: Ares III', 'https://drive.google.com/file/d/1Q67BUzkFhq8_m5k_T5tPDn-PK9UsAqUF/view?usp=drive_link'],
+            ['Stingray: No One', 'https://drive.google.com/file/d/139WXFxO-OKMjJ4Tu6g116fnpa0KL9-sR/view?usp=drive_link'],
+            ['Stingray: Burn', 'https://drive.google.com/file/d/1LP31czAK9EV2Dpp-1_-qg5kpNg4KyN8Q/view?usp=drive_link'],
+            ['Stingray: Mike', 'https://drive.google.com/file/d/17OULK_ykn_XUVZcFaCkybw7kwuxXsBDL/view?usp=drive_link'],
+            ['Stingray: Lady on TV', 'https://drive.google.com/file/d/1-rgFUi57qBKmNFNn3-nPH-749CVKWmO1/view?usp=drive_link'],
+            ['Stingray: Glasses', 'https://drive.google.com/file/d/1u1tBJ43Xte63E9UnkyI8zbMl0YFzfUWL/view?usp=drive_link'],
+            ['Stingray: Phone', 'https://drive.google.com/file/d/16EkZyddcCXB3KMdbF-VKcI7p48MZiAL1/view?usp=drive_link'],
+            ['USBI LOGIN 1', 'https://drive.google.com/file/d/17d3oY7k0bt2VfC7PYVbTAa947t0Kw66o/view?usp=drive_link'],
+            ['USBI LOGIN 2', 'https://drive.google.com/file/d/1WiJd_0_AWCVt8uk9ZmFljhn7gHcCJYW6/view?usp=drive_link'],
+            ['Next Stars Poster', 'https://drive.google.com/file/d/1_p_-7qh1rTD8mDpILIYQusl54SR9CFj-/view?usp=drive_link'],
+            ['Displacee Poster', 'https://drive.google.com/file/d/1ygv6xLVic4222qwThkOZcriRlNnHpqbJ/view?usp=drive_link'],
+            ['Ares III Poster', 'https://drive.google.com/drive/folders/1DWh8MC6pY5fzXn-L_K9i4AphLltcGQfb?usp=drive_link']
+        ];
     }
 
     init() {
@@ -135,6 +170,33 @@ export class Intro extends Phaser.Scene {
         this.initiateAnimations();
     }
 
+    randomArchivalLink() {
+        let linkInd = Phaser.Math.Between(0, this.linkArray.length - 1);
+        console.log(" ARCH1V3 ID:", linkInd);
+        this.questions.setInteractive();
+        this.questions.on('pointerdown', (pointer, localX, localY, event) => {
+            if (pointer.leftButtonDown()) {
+                window.open(this.linkArray[linkInd][1], '_blank');
+            }
+        });
+        // let hoverText = this.add.text(0, 0, this.linkArray[linkInd][1], {
+        //     fontFamily: 'Arial',
+        //     fontSize: '16px',
+        //     color: '#000000',
+        //     backgroundColor: '#ffffff',
+        //     padding: { x: 8, y: 8 }
+        // }).setOrigin(0.5).setVisible(false);
+
+        // this.questions.on('pointerover', function (pointer) {
+        //     hoverText.setPosition(this.questions.x, this.questions.y - this.questions.height / 2 - 20);
+        //     hoverText.setVisible(true);
+        // });
+
+        // this.questions.on('pointerout', function (pointer) {
+        //     hoverText.setVisible(false);
+        // });
+    }
+
     nextEvent() {
         this.playClickNext();
         // console.log(" ROUND / choice made / choice index : ", this.round, this.choiceMade, this.choiceIndex);
@@ -157,6 +219,7 @@ export class Intro extends Phaser.Scene {
                 }
 
                 this.questions = this.add.image(window.game.config.width / 2, this.qY, qName);
+                // this.randomArchivalLink(); // testing
             } else if (this.round <= this.roundTotal) {
                 if (this.choiceMade && this.choiceIndex !== -1) {
                     this.choiceMade = false;
@@ -237,6 +300,9 @@ export class Intro extends Phaser.Scene {
                                     window.open('https://discord.gg/RuPGdjm7mV', '_blank');
                                 }
                             });
+                        }
+                        if (resultIndex == 2 || resultIndex == 3) {
+                            this.randomArchivalLink();
                         }
                         if (resultIndex == 4) {//results 4
                             this.questions.setTexture("results4bXL");
