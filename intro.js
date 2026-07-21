@@ -305,7 +305,7 @@ export class Intro extends Phaser.Scene {
                             this.randomArchivalLink();
                         }
                         if (resultIndex == 4) {//results 4
-                            this.questions.setTexture("results4bXL");
+                            // this.questions.setTexture("results4bXL");
                             if (this.humSnd) {
                                 this.humSnd.destroy();
                             }
