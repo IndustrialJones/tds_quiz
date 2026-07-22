@@ -322,7 +322,8 @@ export class Intro extends Phaser.Scene {
                                 }
                             });
 
-                            this.playButton = this.add.sprite(865, 601, 'btnPlay').setFrame(1);
+                            // this.playButton = this.add.sprite(865, 601, 'btnPlay').setFrame(1);
+                            this.playButton = this.add.sprite(677 + 156 / 2, 516 + 40, 'btnPlay').setFrame(1);
                             this.playButton.setInteractive();
                             this.playButton.on('pointerdown', (pointer, localX, localY, event) => {
                                 if (pointer.leftButtonDown()) {

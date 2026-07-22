@@ -55,7 +55,7 @@ export class Loader extends Phaser.Scene {
 
         // Spritesheets
         this.load.spritesheet('lights', 'assets/images/lights.png', { frameWidth: 750, frameHeight: 98 });
-        this.load.spritesheet('btnPlay', 'assets/images/buttonPlay.png', { frameWidth: 153, frameHeight: 85 });
+        this.load.spritesheet('btnPlay', 'assets/images/buttonPlay.png', { frameWidth: 156, frameHeight: 87 });
 
         // Animations
         this.load.multiatlas('introAnim', 'assets/animations/introAnim.json', 'assets/animations');
