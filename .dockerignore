@@ -1,0 +1,6 @@
+Dockerfile
+build.sh
+push.sh
+
+.env 
+.git
